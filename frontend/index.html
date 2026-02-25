@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>TinyTasks — Security Dashboard</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<header>
+  <h1>TinyTasks</h1>
+  <nav>
+    <button data-page="home">Home</button>
+    <button data-page="tasks">Tasks</button>
+    <button data-page="security">Security Dashboard</button>
+  </nav>
+</header>
+
+<main>
+  <section id="home" class="page active">
+    <h2>Welcome</h2>
+    <p>This UI talks to the TinyTasks API on port 8083.</p>
+    <div class="card">
+      <h3>API Health</h3>
+      <pre id="healthOut">Loading…</pre>
+    </div>
+  </section>
+
+  <section id="tasks" class="page">
+    <h2>Tasks</h2>
+    <form id="addForm">
+      <input id="titleInput" placeholder="New task title" required/>
+      <button type="submit">Add</button>
+    </form>
+    <pre id="tasksOut" class="card">Loading…</pre>
+  </section>
+
+  <section id="security" class="page">
+    <h2>Security Dashboard</h2>
+    <ul id="secList" class="checklist">
+      <li id="sec-nonroot">Non-root user — <span>checking…</span></li>
+      <li id="sec-rofs">Readonly filesystem — <span>checking…</span></li>
+      <li id="sec-nnp">No-New-Privileges — <span>checking…</span></li>
+      <li id="sec-health">/health 200 OK — <span>checking…</span></li>
+    </ul>
+    <pre id="secRaw" class="card"></pre>
+  </section>
+</main>
+
+<footer><small>© TinyTasks Lab</small></footer>
+<script src="app.js"></script>
+</body>
+</html>
+
